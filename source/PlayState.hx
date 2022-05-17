@@ -402,14 +402,15 @@ class PlayState extends MusicBeatState
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
 
-		switch (curStage)
-		{
-			case 'stageQM': //Week 1
-			if(!ClientPrefs.lowQuality) {
+		if(!ClientPrefs.lowQuality) {
+			switch (curStage)
+			{
+				case 'stageQM': //Week 1
+				
 				if ((songName == "quiet") || (songName == "quiet-retro")) {
 					var jake:BGSprite = new BGSprite('jake', -950, -570, 1, 1);
 					add(jake);
-				}
+				}	
 				else if (songName == "brothers-in-arms") {
 					var bubble:BGSprite = new BGSprite('bubble', -950, -570, 1, 1);
 					add(bubble);
@@ -444,11 +445,11 @@ class PlayState extends MusicBeatState
 				credit = new BGSprite('mybro', -200, 550, 0, 0);	
 			else //brothers in arms
 				credit = new BGSprite('brosinarms', -200, 550, 0, 0);	
-		}
 
-		credit.setGraphicSize(Std.int(credit.width * 1.3));
-		credit.updateHitbox();
-		add(credit);
+			credit.setGraphicSize(Std.int(credit.width * 1.3));
+			credit.updateHitbox();
+			add(credit);
+		}
 
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
